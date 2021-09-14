@@ -58,4 +58,13 @@ def find_max(arr):
 print(find_max([1, 3, 5, 7, 9]))
 # 两个思路都需要用到新的变量
 
+# 原书代码 似乎更巧妙简洁
+def max(list):
+	if len(list) == 2:
+		return list[0] if list[0] > list[1] else list[1]
+	sub_max = max(list[1:])
+	return list[0] if list[0] > sub_max else sub_max
+
+print(max([66, 32, 105, 7, 49]))
+
 ```
