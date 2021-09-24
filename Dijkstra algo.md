@@ -35,7 +35,7 @@ parents['fin'] = None
 # 需要创建一个数组用于记录处理过的节点，以避免重复处理
 processed = []
 
-print('The lowest node path is:')
+print('The best path is:')
 print('start \n  ' + chr(0x2193))
 
 # 算法实现
