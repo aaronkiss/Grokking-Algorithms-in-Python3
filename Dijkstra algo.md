@@ -1,6 +1,7 @@
 ```python
 
 # 迪科斯特拉算法
+import collections
 
 graph = {}
 graph['you'] = ['alice', 'bob', 'claire']
@@ -38,6 +39,7 @@ processed = []
 print('The best path is:')
 print('start \n  ' + chr(0x2193))
 
+path_node = collections.deque()  # 建立空双向列表以储存运算后的路径节点
 # 算法实现
 def find_lowest_cost_node(costs):
 	lowest_cost = float('inf')
@@ -58,15 +60,28 @@ while node is not None:  # while 循环将遍历所有节点
 		if costs[n] > new_cost:  # 如果经当前节点前往该邻居更近
 			costs[n] = new_cost  # 就更新该邻居的开销
 			parents[n] = node  # 同时把该邻居的父节点设置为当前节点
-	print(parents[n])
-	print('  ' + chr(0x2193))
+	path_node.append(parents[n])
 	processed.append(node)  # 将当前节点标记为处理过的节点
 	node = find_lowest_cost_node(costs)  # 找出接下来要处理的节点，并循环
 
-print('end')
+# 解决了输出结果出现重复的问题，并优化了输出效果
+path_node.appendleft('start')
+path_node.append('end')
+path = []
+for i in path_node:
+	if not i in path:
+		path.append(i)
+
+for n in path:
+	if n != 'end':
+		print(n, end = ' ' + chr(0x2192) + ' ')
+	else:
+		print('end')
 
 
 ```
 
 ### But there is one problum is that two times printed the same node in resurlt.
 How fix it smartly... 
+### Update on 9-28-21
+I get some point from web, and fix the output effect.
