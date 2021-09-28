@@ -85,4 +85,5 @@ for n in path:
 How fix it smartly... 
 ### Update on 9-28-21
 I get some point from web, and fix the output effect.
+
 start → b → a → end
