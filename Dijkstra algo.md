@@ -37,7 +37,7 @@ parents['fin'] = None
 processed = []
 
 print('The best path is:')
-print('start \n  ' + chr(0x2193))
+
 
 path_node = collections.deque()  # 建立空双向列表以储存运算后的路径节点
 # 算法实现
